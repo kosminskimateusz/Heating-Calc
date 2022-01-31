@@ -1,0 +1,76 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --background-color: #313131;
+  --room-background-color: #eee;
+  --outside-background-color: rgb(0, 183, 255);
+  --text-color: #babaea;
+  --btn-text-color: rgba(0, 119, 255, 0.808);
+}
+
+body {
+  background-color: var(--background-color);
+  position: relative;
+}
+
+#btn-add-room {
+  color: var(--btn-text-color);
+  border: 0;
+  background-color: var(--room-background-color);
+  border-radius: 2em;
+  width: 8em;
+  height: 4em;
+  font-size: 1em;
+  position: absolute;
+  left: 5rem;
+  top: 10rem;
+  cursor: pointer;
+  transition: opacity 0.4s;
+}
+
+#btn-add-room:hover {
+  opacity: 70%;
+}
+
+.content {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+}
+
+.enviroment {
+  width: 60%;
+  height: 80%;
+  margin: auto;
+  background-color: aqua;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+}
+
+.blueprint {
+  margin: auto;
+  background-color: aqua;
+  max-height: 100%;
+  max-width: 100%;
+  border-radius: 10px;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(150px, 1fr));
+  gap: 0.3rem;
+  grid-auto-rows: minmax(150px, 1fr);
+  align-items: center;
+  padding: 10px;
+  border: 1px solid salmon;
+}
+
+.room {
+  margin: auto;
+  height: 100%;
+  width: 100%;
+  background-color: var(--room-background-color);
+}
