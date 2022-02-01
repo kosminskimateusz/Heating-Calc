@@ -17,7 +17,8 @@ body {
   position: relative;
 }
 
-#btn-add-room {
+#btn-add-room,
+#btn-delete-room {
   color: var(--btn-text-color);
   border: 0;
   background-color: var(--room-background-color);
@@ -32,7 +33,12 @@ body {
   transition: opacity 0.4s;
 }
 
-#btn-add-room:hover {
+#btn-delete-room {
+  top: 15rem;
+}
+
+#btn-add-room:hover,
+#btn-delete-room:hover {
   opacity: 70%;
 }
 
@@ -60,7 +66,7 @@ body {
   max-width: 100%;
   border-radius: 10px;
   display: grid;
-  grid-template-columns: repeat(2, minmax(150px, 1fr));
+  grid-template-columns: repeat(1, minmax(150px, 1fr));
   gap: 0.3rem;
   grid-auto-rows: minmax(150px, 1fr);
   align-items: center;
@@ -73,4 +79,15 @@ body {
   height: 100%;
   width: 100%;
   background-color: var(--room-background-color);
+  text-align: center;
+  line-height: 150px;
+  position: relative;
+}
+
+.coordinate {
+  color: orange;
+  font-size: 1.2rem;
+  display: inline-block;
+  line-height: 1.2rem;
+  vertical-align: middle;
 }
