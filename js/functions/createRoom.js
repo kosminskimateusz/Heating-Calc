@@ -10,6 +10,14 @@ export function createRoom() {
   newRoom.classList.add("room");
   let number = rooms.length + 1;
   newRoom.id = "room" + number;
-  newRoom.innerHTML = number;
+  const label = document.createElement("label");
+  label.setAttribute("for", "t" + number);
+  label.innerHTML = "Temp: ";
+  newRoom.append(label);
+  const input = document.createElement("input");
+  input.type = "number";
+  input.classList.add("temperature");
+  input.id = "t" + number;
+  newRoom.append(input);
   blueprint.insertBefore(newRoom, lastRoom);
 };

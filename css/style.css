@@ -98,7 +98,7 @@ body {
   width: 100%;
   background-color: var(--room-background-color);
   text-align: center;
-  line-height: 150px;
+  line-height: 80px;
   position: relative;
 }
 
@@ -106,14 +106,15 @@ label {
   color: var(--btn-text-color);
 }
 
-.temp {
+.temperature {
   width: 50px;
 }
 
 .coordinate {
   color: orange;
   font-size: 1.2rem;
-  display: inline-block;
+  /* display: inline-block; */
+  /* display: block; */
   line-height: 1.2rem;
   vertical-align: middle;
 }

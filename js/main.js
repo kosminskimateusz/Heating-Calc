@@ -3,7 +3,7 @@ import { deleteRoom } from './functions/deleteRoom.js';
 import { getCoordinates } from './functions/getCoordinates.js';
 import { autoSizeGrid } from './functions/autoSizeGrid.js';
 import { editRooms } from './functions/editRooms.js';
-
+import { deleteCoordinates } from './functions/deleteCoordinates.js';
 
 const blueprint = document.querySelector(".blueprint");
 
@@ -11,7 +11,7 @@ const addRoomBtn = document.getElementById("btn-add-room");
 addRoomBtn.addEventListener("click", () => {
   createRoom();
   autoSizeGrid();
-  getCoordinates();
+  // getCoordinates();
 }, false);
 
 
@@ -19,7 +19,7 @@ const deleteRoomBtn = document.getElementById("btn-delete-room");
 deleteRoomBtn.addEventListener("click", () => {
   deleteRoom();
   autoSizeGrid();
-  getCoordinates();
+  // getCoordinates();
 }, false);
 
 
@@ -32,21 +32,18 @@ confirmRoomsBtn.addEventListener("click", () => {
   editRoomsBtn.append("Edit");
   editRoomsBtn.addEventListener("click", function () {
     editRooms(addRoomBtn, deleteRoomBtn, confirmRoomsBtn, calculateBtn,editRoomsBtn);
+    deleteCoordinates();
   });
   const calculateBtn = document.createElement("button");
   calculateBtn.id = "btn-calculate";
   calculateBtn.append("Calculate");
-  calculateBtn.addEventListener("click", calculate);
+  calculateBtn.addEventListener("click", calculate, {once: true});
 
   confirmRoomsBtn.remove();
   document.body.append(editRoomsBtn, calculateBtn);
 })
 
 
-
-
 function calculate() {
-
+  getCoordinates();
 }
-
-getCoordinates();
