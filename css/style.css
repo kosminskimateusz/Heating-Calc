@@ -18,7 +18,10 @@ body {
 }
 
 #btn-add-room,
-#btn-delete-room {
+#btn-delete-room,
+#btn-confirm-rooms,
+#btn-edit-rooms,
+#btn-calculate {
   color: var(--btn-text-color);
   border: 0;
   background-color: var(--room-background-color);
@@ -37,8 +40,23 @@ body {
   top: 15rem;
 }
 
+#btn-edit-rooms {
+  top: 18rem;
+}
+
+#btn-confirm-rooms,
+#btn-calculate {
+  color: #313131;
+  background-color: rgb(194, 132, 57);
+  font-weight: bold;
+  top: 25rem;
+}
+
 #btn-add-room:hover,
-#btn-delete-room:hover {
+#btn-delete-room:hover,
+#btn-confirm-rooms:hover,
+#btn-edit-rooms:hover,
+#btn-calculate:hover {
   opacity: 70%;
 }
 
@@ -82,6 +100,14 @@ body {
   text-align: center;
   line-height: 150px;
   position: relative;
+}
+
+label {
+  color: var(--btn-text-color);
+}
+
+.temp {
+  width: 50px;
 }
 
 .coordinate {

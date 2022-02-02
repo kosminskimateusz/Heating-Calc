@@ -1,6 +1,4 @@
 const blueprint = document.querySelector(".blueprint");
-const addRoomBtn = document.getElementById("btn-add-room");
-const deleteRoomBtn = document.getElementById("btn-delete-room");
 
 function createRoom() {
   let rooms = document.querySelectorAll(".room");
@@ -31,26 +29,70 @@ function autoSizeGrid() {
   (size === 3) ? blueprint.style.gridTemplateColumns = `repeat(2, minmax(150px, 1fr))` : blueprint.style.gridTemplateColumns = `repeat(${Math.ceil(size / 3)}, minmax(150px, 1fr))`;
 }
 
-addRoomBtn.addEventListener("click", () => {
-  createRoom();
-  autoSizeGrid();
-  getCoordinates();
-}, false);
-
-deleteRoomBtn.addEventListener("click", () => {
-  deleteRoom();
-  autoSizeGrid();
-  getCoordinates();
-}, false);
-
 function getCoordinates() {
   let rooms = document.querySelectorAll(".room");
   for (let el of rooms) {
     const { left, top, width, height } = el.getBoundingClientRect();
     const centerX = left + width / 2;
     const centerY = top + height / 2;
-    el.innerHTML = ("<p class='coordinate'>x: " + centerX + "<br />y: " + centerY + "</p>");
+    const oldCoordinate = document.querySelector(".coordinate");
+    console.log(oldCoordinate);
+    const coordinate = document.createElement("p");
+    coordinate.classList.add("coordinate");
+    coordinate.append("x: " + centerX);
+    coordinate.innerHTML += "<br />";
+    coordinate.append("y: " + centerY);
+
+      el.appendChild(coordinate);
+
+    // el.append("<p class='coordinate'>x: " + centerX + "<br />y: " + centerY + "</p>");
   }
+}
+
+
+const addRoomBtn = document.getElementById("btn-add-room");
+addRoomBtn.addEventListener("click", () => {
+  createRoom();
+  autoSizeGrid();
+  getCoordinates();
+}, false);
+
+
+const deleteRoomBtn = document.getElementById("btn-delete-room");
+deleteRoomBtn.addEventListener("click", () => {
+  deleteRoom();
+  autoSizeGrid();
+  getCoordinates();
+}, false);
+
+
+const confirmRoomsBtn = document.getElementById("btn-confirm-rooms");
+confirmRoomsBtn.addEventListener("click", () => {
+  addRoomBtn.remove();
+  deleteRoomBtn.remove();
+  const editRoomsBtn = document.createElement("button");
+  editRoomsBtn.id = "btn-edit-rooms";
+  editRoomsBtn.append("Edit");
+  editRoomsBtn.addEventListener("click", function () {
+    editRooms(editRoomsBtn);
+  });
+  const calculateBtn = document.createElement("button");
+  calculateBtn.id = "btn-calculate";
+  calculateBtn.append("Calculate");
+  calculateBtn.addEventListener("click", calculate);
+
+  confirmRoomsBtn.remove();
+  document.body.append(editRoomsBtn, calculateBtn);
+})
+
+
+function editRooms(editRoomsBtn) {
+  document.body.append(addRoomBtn, deleteRoomBtn, confirmRoomsBtn);
+  editRoomsBtn.remove();
+}
+
+function calculate() {
+
 }
 
 getCoordinates();
