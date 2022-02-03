@@ -2,4 +2,5 @@ export function editRooms(addRoomBtn, deleteRoomBtn, confirmRoomsBtn, calculateB
   document.body.append(addRoomBtn, deleteRoomBtn, confirmRoomsBtn);
   editRoomsBtn.remove();
   calculateBtn.remove();
+  localStorage.clear();
 }

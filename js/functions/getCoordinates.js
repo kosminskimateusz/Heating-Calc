@@ -1,6 +1,6 @@
-
 export function getCoordinates() {
   let rooms = document.querySelectorAll(".room");
+  let num = 1;
   for (let room of rooms) {
     const { left, top, width, height } = room.getBoundingClientRect();
     const centerX = left + width / 2;
@@ -13,5 +13,8 @@ export function getCoordinates() {
     coordinate.append("y: " + centerY);
 
     room.appendChild(coordinate);
+    localStorage.setItem("x" + num, centerX);
+    localStorage.setItem("y" + num, centerY);
+    num++;
   }
 }
