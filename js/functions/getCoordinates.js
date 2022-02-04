@@ -1,10 +1,10 @@
 export function getCoordinates() {
   let rooms = document.querySelectorAll(".room");
-  let num = 1;
+  let num = 0;
   for (let room of rooms) {
     const { left, top, width, height } = room.getBoundingClientRect();
-    const centerX = left + width / 2;
-    const centerY = top + height / 2;
+    const centerX = Math.round(left + width / 2);
+    const centerY = Math.round(top + height / 2);
 
     const coordinate = document.createElement("p");
     coordinate.classList.add("coordinate");

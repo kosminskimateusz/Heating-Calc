@@ -42,3 +42,6 @@ confirmRoomsBtn.addEventListener("click", () => {
   confirmRoomsBtn.remove();
   document.body.append(editRoomsBtn, calculateBtn);
 })
+
+
+console.log(-200 < -310 < 200);
