@@ -5,8 +5,9 @@ export function calculate() {
   let roomsObject = new Array();
   let id = 0;
   // const temperatures = collect array from inputs
-  // const outsideTemperature = get from last array record
-  // cut temperatures last record
+  // const outsideTemperature = get from last record of array
+  // cut temperatures last record of array
+  const temperatures = document.querySelectorAll(".temperature");
   const temperature = 20;
 
   for (let el of rooms) {
