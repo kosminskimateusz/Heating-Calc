@@ -5,7 +5,7 @@ import { autoSizeGrid } from './functions/autoSizeGrid.js';
 import { editRooms } from './functions/editRooms.js';
 import { deleteCoordinates } from './functions/deleteCoordinates.js';
 import { createBtn } from './functions/createBtn.js';
-import { calculate } from './functions/calculate.js';
+import { calculateTemperatureRoad } from './functions/calculateTemperatureRoad.js';
 
 const blueprint = document.querySelector(".blueprint");
 
@@ -36,7 +36,7 @@ confirmRoomsBtn.addEventListener("click", () => {
   const calculateBtn = createBtn("Calculate", "btn-calculate");
   calculateBtn.addEventListener("click", () => {
     getCoordinates();
-    calculate();
+    calculateTemperatureRoad();
   }, { once: true });
 
   confirmRoomsBtn.remove();
