@@ -1,6 +1,4 @@
-export function setRoomsNeighborhood(roomsObjects, enviroment) {
-
-  console.log(roomsObjects, enviroment);
+export function setRoomsNeighborhood(roomsObjects) {
   for (let room of roomsObjects) {
     // console.log(room.id);
     // console.log(room.x);
@@ -14,12 +12,12 @@ export function setRoomsNeighborhood(roomsObjects, enviroment) {
         diffY = Math.round(room.y - r.y);
         // console.log("diffX: ", diffX);
         if ((-200 < diffX && diffX < 200) && diffY === 0) {
-          (diffX < 0) ? room.right = r : room.right = enviroment;
-          (diffX > 0) ? room.left = r : room.left = enviroment;
+          (diffX < 0) ? room.right = r : null;
+          (diffX > 0) ? room.left = r : null;
         }
         if ((-200 < diffY && diffY < 200) && diffX === 0) {
-          (diffY < 0) ? room.bottom = r : room.bottom = enviroment;
-          (diffY > 0) ? room.top = r : room.top = enviroment;
+          (diffY < 0) ? room.bottom = r : null;
+          (diffY > 0) ? room.top = r : null;
         }
       }
     }
