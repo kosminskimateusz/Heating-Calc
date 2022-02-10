@@ -18,6 +18,9 @@ export function createRoom() {
   input.type = "number";
   input.classList.add("temperature");
   input.id = "t" + number;
+  input.required = true;
+  input.placeholder="0";
+  input.value = "0";
   newRoom.append(input);
   blueprint.insertBefore(newRoom, lastRoom);
 };
