@@ -75,6 +75,23 @@ body {
   border-radius: 10px;
   display: flex;
   align-items: center;
+  position: relative;
+}
+
+.out-temperature {
+  position: absolute;
+  top: 100px;
+  left: 35%;
+}
+
+.label-outside-temperature {
+  color: var(--background-color);
+  font-weight: 600;
+}
+
+
+#t0 {
+  width: 50px;
 }
 
 .blueprint {
@@ -102,13 +119,17 @@ body {
   position: relative;
 }
 
-label {
+.label-room-temperature {
   color: var(--btn-text-color);
+  font-weight: 600;
 }
 
 .temperature {
   width: 50px;
 }
+
+
+
 
 .coordinate {
   color: orange;
