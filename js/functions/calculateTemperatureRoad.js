@@ -3,6 +3,9 @@ import { setRoomsNeighborhood } from "./calculateRoomsFunctions/setRoomsNeighbor
 import { Outside } from "../sources/Outside.js";
 import { fillOutsideRooms } from "./calculateRoomsFunctions/fillOutsideToRooms.js";
 import { checkTemperatures } from "./calculateRoomsFunctions/checkTemperatures.js";
+import { getOutsideTemperature } from "./calculateRoomsFunctions/getOutsideTemperature.js";
+import { getInputsTemperature } from "./calculateRoomsFunctions/getInputsTemperature.js";
+import { createArrayOfTemperatures } from "./calculateRoomsFunctions/createArrayOfTemperatures.js";
 
 export function calculateTemperatureRoad() {
 
@@ -11,24 +14,20 @@ export function calculateTemperatureRoad() {
   // cut temperatures last record of array
   const roomsObjects = createRoomObjects();
   setRoomsNeighborhood(roomsObjects);
-  const outsideTemperature = parseInt(document.getElementById("t0").value, 10);
-  const temperatureInputs = document.querySelectorAll(".temperature");
-  const temperatures = new Array();
-  for (let input of temperatureInputs) {
-    if (typeof input.value !== 'string' && input.value != "") {
-      temperatures.push(parseInt(input.value, 10));
-    } else {
-      input.value = 0;
-      temperatures.push('0');
-    }
-  }
-  
+  const outsideTemperature = getOutsideTemperature();
+  const inputsTemperature = getInputsTemperature();
+  const temperatures = createArrayOfTemperatures(inputsTemperature);
+  console.log("Temperatures: ", temperatures);
+
+
+  console.log("Work!!!");
+
   let correctTemperatures = checkTemperatures(temperatures);
   console.log(temperatures, correctTemperatures);
-  if (outsideTemperature !== NaN && outsideTemperature < 25 && outsideTemperature > -30 && correctTemperatures === true)  {
+  if (outsideTemperature !== NaN && outsideTemperature < 25 && outsideTemperature > -30 && correctTemperatures === true) {
     const outside = new Outside(outsideTemperature);
     fillOutsideRooms(roomsObjects, outside);
-    
+
     if (roomsObjects.length === temperatures.length) {
       let i = 0;
       for (const room of roomsObjects) {
@@ -37,7 +36,10 @@ export function calculateTemperatureRoad() {
     }
   }
   // I haven't to check null properties for top, right, bottom and left, because fillOutsideRooms function make me sure that isn't empty
-  
+
   console.log(roomsObjects);
+
+
+
 }
 

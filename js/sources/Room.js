@@ -6,13 +6,12 @@ export class Room {
   right;
   top;
   bottom;
-  temperature = 20;
+  temperature;
 
-  constructor(id, temperature) {
+  constructor(id) {
     this.id = id;
     this.x = localStorage.getItem("x" + id);
     this.y = localStorage.getItem("y" + id);
-    this.temperature = temperature;
   }
 
 }

@@ -34,11 +34,13 @@ confirmRoomsBtn.addEventListener("click", () => {
     deleteCoordinates();
   });
   const calculateBtn = createBtn("Calculate", "btn-calculate");
-  calculateBtn.addEventListener("click", () => {
-    getCoordinates();
-    calculateTemperatureRoad();
-  }, { once: true });
-
+  let error;
+  // do {
+    calculateBtn.addEventListener("click", () => {
+      getCoordinates();
+      error = calculateTemperatureRoad();
+    }, { once: true });
+  // } while (typeof error != Error)
   confirmRoomsBtn.remove();
   document.body.append(editRoomsBtn, calculateBtn);
 })
